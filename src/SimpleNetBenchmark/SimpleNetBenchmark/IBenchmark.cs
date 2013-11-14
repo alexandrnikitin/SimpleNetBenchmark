@@ -13,13 +13,16 @@ namespace SimpleNetBenchmark
         Action Action { get; set; }
         Action Deinit { get; set; }
         Action IterationDeinit { get; set; }
+    }
 
-        IBenchmark For(Action action);
-        IBenchmark WithName(string name);
-        IBenchmark WithInit(Action action);
-        IBenchmark WithDeinit(Action action);
-        IBenchmark WithIterationInit(Action action);
-        IBenchmark WithIterationDeinit(Action action);
+    public interface IBenchmarkBuilder
+    {
+        IBenchmarkBuilder For(Action action);
+        IBenchmarkBuilder WithName(string name);
+        IBenchmarkBuilder WithInit(Action action);
+        IBenchmarkBuilder WithDeinit(Action action);
+        IBenchmarkBuilder WithIterationInit(Action action);
+        IBenchmarkBuilder WithIterationDeinit(Action action);
     }
 
 }

@@ -46,10 +46,13 @@
     <Compile Include="ConsoleBenchmarkResultWriter.cs" />
     <Compile Include="IBenchmarkFactory.cs" />
     <Compile Include="IBenchmarkHost.cs" />
+    <Compile Include="IBenchmarkHostBuilder.cs" />
     <Compile Include="IBenchmarkHostConfigurator.cs" />
+    <Compile Include="IBenchmarkHostRunner.cs" />
     <Compile Include="IBenchmarkMeasurer.cs" />
     <Compile Include="IBenchmarkResultWriter.cs" />
     <Compile Include="Measurers\StopwatchBenchmarkMeasurer.cs" />
+    <Compile Include="BenchmarkBuilder.cs" />
     <Compile Include="Please.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
