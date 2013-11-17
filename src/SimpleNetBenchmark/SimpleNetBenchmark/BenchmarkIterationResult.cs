@@ -10,5 +10,11 @@
 
         public long ElapsedTicks { get; set; }
         public double ElapsedMilliseconds { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("Iteration: Ticks: {0}, Milliseconds: {1}", ElapsedTicks, ElapsedMilliseconds);
+        }
+
     }
 }

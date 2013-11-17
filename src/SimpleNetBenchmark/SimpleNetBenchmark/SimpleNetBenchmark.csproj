@@ -46,6 +46,7 @@
     <Compile Include="BenchmarkHostRunner.cs" />
     <Compile Include="BenchmarkIterationResult.cs" />
     <Compile Include="BenchmarkResult.cs" />
+    <Compile Include="BenchmarkRunner.cs" />
     <Compile Include="Configurators\GCBenchmarkHostConfigurator.cs" />
     <Compile Include="Configurators\MemoryBenchmarkHostConfigurator.cs" />
     <Compile Include="Configurators\ThreadBenchmarkHostConfigurator.cs" />
@@ -63,7 +64,7 @@
     <Compile Include="IBenchmarkResultWriter.cs" />
     <Compile Include="IBenchmarkRunner.cs" />
     <Compile Include="Measurers\StopwatchBenchmarkMeasurer.cs" />
-    <Compile Include="BenchmarkBuilder.cs" />
+    <Compile Include="BenchmarkHostBuilder.cs" />
     <Compile Include="Please.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

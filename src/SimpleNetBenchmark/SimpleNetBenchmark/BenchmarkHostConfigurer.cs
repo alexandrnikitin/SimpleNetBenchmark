@@ -2,24 +2,26 @@
 {
     public class BenchmarkHostConfigurer : IBenchmarkHostConfigurer
     {
+        private readonly IBenchmarkHost _benchmarkHost;
+
+        public BenchmarkHostConfigurer(IBenchmarkHost benchmarkHost)
+        {
+            _benchmarkHost = benchmarkHost;
+        }
+
         public void AddConfigurator(IBenchmarkHostConfigurator benchmarkHostConfigurator)
         {
-            throw new System.NotImplementedException();
+            _benchmarkHost.Configurators.Add(benchmarkHostConfigurator);
         }
 
         public void WriteResultsTo(IBenchmarkResultWriter benchmarkResultWriter)
         {
-            throw new System.NotImplementedException();
+            _benchmarkHost.ResultWriter = benchmarkResultWriter;
         }
 
         public void WithMeasurer(IBenchmarkMeasurer benchmarkMeasurer)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public IBenchmarkComposer Build()
-        {
-            throw new System.NotImplementedException();
+            _benchmarkHost.Measurer = benchmarkMeasurer;
         }
     }
 }

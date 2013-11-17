@@ -6,16 +6,29 @@ namespace SimpleNetBenchmark
     {
         private IBenchmarkHostRunner _runner;
         private List<IBenchmarkHostConfigurator> _configurators;
-        private IEnumerable<IBenchmark> _benchmarks;
+        private List<IBenchmark> _benchmarks;
 
-        public IBenchmarkHostRunner Runner {
+
+        public BenchmarkHost(IBenchmarkHostRunner runner, List<IBenchmarkHostConfigurator> configurators, IBenchmarkMeasurer measurer, IBenchmarkResultWriter resultWriter)
+        {
+            _runner = runner;
+            _configurators = configurators;
+            Measurer = measurer;
+            ResultWriter = resultWriter;
+
+            _benchmarks = new List<IBenchmark>();
+            _configurators = new List<IBenchmarkHostConfigurator>();
+        }
+
+        public IBenchmarkHostRunner Runner
+        {
             get
             {
                 return _runner;
             }
         }
 
-        public IEnumerable<IBenchmarkHostConfigurator> Configurators
+        public List<IBenchmarkHostConfigurator> Configurators
         {
             get
             {
@@ -23,7 +36,7 @@ namespace SimpleNetBenchmark
             }
         }
 
-        public IEnumerable<IBenchmark> Benchmarks
+        public List<IBenchmark> Benchmarks
         {
             get
             {
@@ -31,9 +44,17 @@ namespace SimpleNetBenchmark
             }
         }
 
-        public void Run()
+        public IBenchmarkResultWriter ResultWriter { get; set; }
+        public IBenchmarkMeasurer Measurer { get; set; }
+
+        public bool Validate()
         {
             throw new System.NotImplementedException();
+        }
+
+        public void Run()
+        {
+            _runner.Run(this);
         }
     }
 }

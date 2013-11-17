@@ -5,8 +5,11 @@ namespace SimpleNetBenchmark
     public interface IBenchmarkHost
     {
         IBenchmarkHostRunner Runner { get; }
-        IEnumerable<IBenchmarkHostConfigurator> Configurators { get; }
-        IEnumerable<IBenchmark> Benchmarks { get; }
+        List<IBenchmarkHostConfigurator> Configurators { get; }
+        List<IBenchmark> Benchmarks { get; }
+        IBenchmarkResultWriter ResultWriter { get; set; }
+        IBenchmarkMeasurer Measurer { get; set; }
+        bool Validate();
         void Run();
     }
 }
