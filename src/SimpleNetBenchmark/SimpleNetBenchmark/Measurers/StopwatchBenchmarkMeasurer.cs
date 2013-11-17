@@ -9,5 +9,21 @@
         public void Stop()
         {
         }
+
+        public long ElapsedTicks 
+        {
+            get
+            {
+                return 0;
+            }
+        }
+
+        public double ElapsedMilliseconds
+        {
+            get
+            {
+                return 0;
+            }
+        }
     }
 }

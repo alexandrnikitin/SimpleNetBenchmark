@@ -4,12 +4,12 @@ namespace SimpleNetBenchmark
 {
     public class BenchmarkBuilder
     {
-        public IBenchmarkHostRunner SetupBenchmark(Action<IBenchmarkHost> action)
+        public IBenchmarkHost SetupBenchmark(Action<IBenchmarkComposer> action)
         {
             return null;
         }
 
-        public BenchmarkBuilder Setup(Action<IBenchmarkHostBuilder> action)
+        public BenchmarkBuilder Setup(Action<IBenchmarkHostConfigurer> action)
         {
             return this;
         }

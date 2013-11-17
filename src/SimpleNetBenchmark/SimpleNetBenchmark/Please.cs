@@ -6,7 +6,7 @@ namespace SimpleNetBenchmark
 {
     public static class Please
     {
-        public static void Run(Action<IBenchmarkHost> action)
+        public static void Run(Action<IBenchmarkComposer> action)
         {
             new BenchmarkBuilder().Setup(x =>
             {

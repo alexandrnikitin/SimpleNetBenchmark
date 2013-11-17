@@ -4,5 +4,7 @@
     {
         void Start();
         void Stop();
+        long ElapsedTicks { get; }
+        double ElapsedMilliseconds { get; }
     }
 }

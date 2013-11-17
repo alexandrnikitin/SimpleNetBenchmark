@@ -1,9 +1,12 @@
-﻿namespace SimpleNetBenchmark
+﻿using System.Collections.Generic;
+
+namespace SimpleNetBenchmark
 {
     public interface IBenchmarkHost
     {
-        IBenchmarkHost Add(IBenchmark benchmark);
-
-        IBenchmarkBuilder Benchmark { get; }
+        IBenchmarkHostRunner Runner { get; }
+        IEnumerable<IBenchmarkHostConfigurator> Configurators { get; }
+        IEnumerable<IBenchmark> Benchmarks { get; }
+        void Run();
     }
 }

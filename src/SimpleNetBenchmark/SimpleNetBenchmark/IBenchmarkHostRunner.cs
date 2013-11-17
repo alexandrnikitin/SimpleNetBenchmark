@@ -2,6 +2,6 @@
 {
     public interface IBenchmarkHostRunner
     {
-        void Run();
+        void Run(IBenchmarkHost benchmarkHost);
     }
 }
