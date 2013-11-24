@@ -2,7 +2,7 @@
 
 namespace SimpleNetBenchmark.Configurators
 {
-    public class MemoryBenchmarkHostConfigurator : IBenchmarkHostConfigurator
+    public class MemoryCollectingBenchmarkHostConfigurator : IBenchmarkHostConfigurator
     {
         public void Init()
         {
@@ -13,7 +13,6 @@ namespace SimpleNetBenchmark.Configurators
 
         public void Deinit()
         {
-            //todo
         }
     }
 }

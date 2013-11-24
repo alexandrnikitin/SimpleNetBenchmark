@@ -7,6 +7,10 @@ namespace SimpleNetBenchmark
         private readonly IBenchmarkRunner _benchmarkRunner;
         private readonly IBenchmarkResultWriter _benchmarkResultWriter;
 
+        public BenchmarkHostRunner() : this(new BenchmarkRunner(), new ConsoleBenchmarkResultWriter())
+        {
+        }
+
         public BenchmarkHostRunner(IBenchmarkRunner benchmarkRunner, IBenchmarkResultWriter benchmarkResultWriter)
         {
             _benchmarkRunner = benchmarkRunner;

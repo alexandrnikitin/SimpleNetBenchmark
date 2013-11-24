@@ -12,31 +12,31 @@ namespace SimpleNetBenchmark.Samples
 
         private static void Main(string[] args)
         {
-/*            new BenchmarkHostBuilder()
+            new BenchmarkHostBuilder()
                 .Configure(x =>
                 {
                     x.WriteResultsTo(new ConsoleBenchmarkResultWriter());
-                    x.WithMeasurer(new StopwatchBenchmarkMeasurer());
+                    x.WithMeasurer(new QueryPerformanceCounterMeasurer());
 
-                    x.AddConfigurator(new ThreadBenchmarkHostConfigurator());
-                    x.AddConfigurator(new MemoryBenchmarkHostConfigurator());
-                    x.AddConfigurator(new GCBenchmarkHostConfigurator());
+                    x.AddConfigurator(new ThreadSetupBenchmarkHostConfigurator());
+                    x.AddConfigurator(new MemoryCollectingBenchmarkHostConfigurator());
+                    x.AddConfigurator(new GCSetupBenchmarkHostConfigurator());
                 })
                 .Compose(x =>
                 {
                     x.Benchmark.For(() =>
                     {
-                        var k = 0;
-                        for (var i = 0; i < 10; i++)
-                        {
-                            k *= i;
-                        }
+                        int sum = 0;
+                        for (int i = 0; i < _list.Count; i++)
+                            sum += _list[i];
+
+                        var result = sum;
                     })
-                        .WithName("Increment")
-                        .WithInit(() => Console.WriteLine("Init called"));
+                        .WithName("For")
+                        .WithIterationInit(() => _list = Enumerable.Range(0, 5000000).ToList());
 
                 })
-                .Run();*/
+                .Run();
 
             Please.Run(x =>
             {
@@ -49,8 +49,9 @@ namespace SimpleNetBenchmark.Samples
                     var result = sum;
                 })
                     .WithName("For")
-                    .WithIterationInit(() => _list = Enumerable.Range(0, 20000000).ToList());
+                    .WithIterationInit(() => _list = Enumerable.Range(0, 5000000).ToList());
 
+/*
                 x.Benchmark.For(() =>
                 {
                     int length = _list.Count;
@@ -59,7 +60,7 @@ namespace SimpleNetBenchmark.Samples
                         sum += _list[i];
                 })
                     .WithName("For opt")
-                    .WithIterationInit(() => _list = Enumerable.Range(0, 20000000).ToList());
+                    .WithIterationInit(() => _list = Enumerable.Range(0, 2000000).ToList());
 
                 x.Benchmark.For(() =>
                 {
@@ -68,7 +69,7 @@ namespace SimpleNetBenchmark.Samples
                         sum += item;
                 })
                     .WithName("Foreach")
-                    .WithIterationInit(() => _list = Enumerable.Range(0, 20000000).ToList());
+                    .WithIterationInit(() => _list = Enumerable.Range(0, 2000000).ToList());
 
                 x.Benchmark.For(() =>
                 {
@@ -76,7 +77,8 @@ namespace SimpleNetBenchmark.Samples
                     _list.ForEach(i => { sum += i; });
                 })
                     .WithName("Linq")
-                    .WithIterationInit(() => _list = Enumerable.Range(0, 20000000).ToList());
+                    .WithIterationInit(() => _list = Enumerable.Range(0, 2000000).ToList());
+*/
 
             });
 

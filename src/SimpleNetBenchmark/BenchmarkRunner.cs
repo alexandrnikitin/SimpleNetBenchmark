@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using SimpleNetBenchmark.Measurers;
 
 namespace SimpleNetBenchmark
 {
     public class BenchmarkRunner : IBenchmarkRunner
     {
         private readonly IBenchmarkMeasurer _benchmarkMeasurer;
+
+        public BenchmarkRunner() : this(new StopwatchBenchmarkMeasurer())
+        {
+        }
 
         public BenchmarkRunner(IBenchmarkMeasurer benchmarkMeasurer)
         {

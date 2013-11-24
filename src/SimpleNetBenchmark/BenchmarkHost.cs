@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using SimpleNetBenchmark.Configurators;
+using SimpleNetBenchmark.Measurers;
 
 namespace SimpleNetBenchmark
 {
     public class BenchmarkHost : IBenchmarkHost
     {
-        private IBenchmarkHostRunner _runner;
-        private List<IBenchmarkHostConfigurator> _configurators;
-        private List<IBenchmark> _benchmarks;
-
+        private readonly IBenchmarkHostRunner _runner;
+        private readonly List<IBenchmarkHostConfigurator> _configurators;
+        private readonly List<IBenchmark> _benchmarks;
 
         public BenchmarkHost(IBenchmarkHostRunner runner, List<IBenchmarkHostConfigurator> configurators, IBenchmarkMeasurer measurer, IBenchmarkResultWriter resultWriter)
         {
@@ -18,6 +19,20 @@ namespace SimpleNetBenchmark
 
             _benchmarks = new List<IBenchmark>();
             _configurators = new List<IBenchmarkHostConfigurator>();
+        }
+
+        public BenchmarkHost()
+            : this(
+                new BenchmarkHostRunner(),
+                new List<IBenchmarkHostConfigurator>
+                {
+                    new ThreadSetupBenchmarkHostConfigurator(),
+                    new GCSetupBenchmarkHostConfigurator(),
+                    new MemoryCollectingBenchmarkHostConfigurator()
+                },
+                new StopwatchBenchmarkMeasurer(),
+                new ConsoleBenchmarkResultWriter())
+        {
         }
 
         public IBenchmarkHostRunner Runner
