@@ -4,32 +4,32 @@ namespace SimpleNetBenchmark
 {
     public class BenchmarkHostRunner : IBenchmarkHostRunner
     {
+        private readonly IBenchmarkHost _benchmarkHost;
         private readonly IBenchmarkRunner _benchmarkRunner;
-        private readonly IBenchmarkResultWriter _benchmarkResultWriter;
 
-        public BenchmarkHostRunner() : this(new BenchmarkRunner(), new ConsoleBenchmarkResultWriter())
+        public BenchmarkHostRunner(IBenchmarkHost benchmarkHost) : this(benchmarkHost, new BenchmarkRunner(benchmarkHost.Measurer))
         {
         }
 
-        public BenchmarkHostRunner(IBenchmarkRunner benchmarkRunner, IBenchmarkResultWriter benchmarkResultWriter)
+        public BenchmarkHostRunner(IBenchmarkHost benchmarkHost, IBenchmarkRunner benchmarkRunner)
         {
+            _benchmarkHost = benchmarkHost;
             _benchmarkRunner = benchmarkRunner;
-            _benchmarkResultWriter = benchmarkResultWriter;
         }
 
-        public void Run(IBenchmarkHost benchmarkHost)
+        public void Run()
         {
-            var configurators = benchmarkHost.Configurators.ToList();
+            var configurators = _benchmarkHost.Configurators.ToList();
             foreach (var configurator in configurators)
             {
                 configurator.Init();
             }
 
-            var benchmarks = benchmarkHost.Benchmarks;
+            var benchmarks = _benchmarkHost.Benchmarks;
             foreach (var benchmark in benchmarks)
             {
                 var result = _benchmarkRunner.Run(benchmark);
-                _benchmarkResultWriter.Write(benchmark, result);
+                _benchmarkHost.ResultWriter.Write(benchmark, result);
             }
 
             foreach (var configurator in configurators)

@@ -63,7 +63,6 @@
     <Compile Include="IBenchmarkResult.cs" />
     <Compile Include="IBenchmarkResultWriter.cs" />
     <Compile Include="IBenchmarkRunner.cs" />
-    <Compile Include="Measurers\QueryPerformanceCounterMeasurer.cs" />
     <Compile Include="Measurers\StopwatchBenchmarkMeasurer.cs" />
     <Compile Include="BenchmarkHostBuilder.cs" />
     <Compile Include="Please.cs" />

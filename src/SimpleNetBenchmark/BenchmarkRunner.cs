@@ -8,10 +8,6 @@ namespace SimpleNetBenchmark
     {
         private readonly IBenchmarkMeasurer _benchmarkMeasurer;
 
-        public BenchmarkRunner() : this(new StopwatchBenchmarkMeasurer())
-        {
-        }
-
         public BenchmarkRunner(IBenchmarkMeasurer benchmarkMeasurer)
         {
             _benchmarkMeasurer = benchmarkMeasurer;

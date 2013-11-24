@@ -16,7 +16,7 @@ namespace SimpleNetBenchmark.Samples
                 .Configure(x =>
                 {
                     x.WriteResultsTo(new ConsoleBenchmarkResultWriter());
-                    x.WithMeasurer(new QueryPerformanceCounterMeasurer());
+                    x.WithMeasurer(new StopwatchBenchmarkMeasurer());
 
                     x.AddConfigurator(new ThreadSetupBenchmarkHostConfigurator());
                     x.AddConfigurator(new MemoryCollectingBenchmarkHostConfigurator());

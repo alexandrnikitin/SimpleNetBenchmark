@@ -11,13 +11,13 @@ namespace SimpleNetBenchmark
             _benchmarkHost = new BenchmarkHost();
         }
 
-        public IBenchmarkHost Compose(Action<IBenchmarkComposer> action)
+        public IBenchmarkHostRunner Compose(Action<IBenchmarkComposer> action)
         {
             if (action == null) throw new ArgumentNullException("action");
 
             action(new BenchmarkComposer(_benchmarkHost));
 
-            return _benchmarkHost;
+            return new BenchmarkHostRunner(_benchmarkHost);
         }
 
         public BenchmarkHostBuilder Configure(Action<IBenchmarkHostConfigurer> action)
