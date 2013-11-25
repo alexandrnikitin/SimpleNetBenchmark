@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SimpleNetBenchmark</id>
+    <version>0.1.0</version>
+    <title>SimpleNetBenchmark</title>
+    <authors>Alexandr Nikitin</authors>
+    <owners>qwesoftware</owners>
+    <licenseUrl>https://github.com/alexandrnikitin/SimpleNetBenchmark/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/alexandrnikitin/SimpleNetBenchmark</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>SimpleNetBenchmark provides simple api to benchmark your code.</description>
+    <releaseNotes>First release</releaseNotes>
+    <copyright>Copyright qwesoftware 2013</copyright>
+    <tags>.net benchmark</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+</package>

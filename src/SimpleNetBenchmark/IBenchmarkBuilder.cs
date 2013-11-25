@@ -10,5 +10,7 @@ namespace SimpleNetBenchmark
         IBenchmarkBuilder WithDeinit(Action action);
         IBenchmarkBuilder WithIterationInit(Action action);
         IBenchmarkBuilder WithIterationDeinit(Action action);
+        IBenchmarkBuilder WithIterationCount(int count);
+        IBenchmarkBuilder WithWarmupIterationCount(int count);
     }
 }

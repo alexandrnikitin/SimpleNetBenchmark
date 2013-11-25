@@ -1,0 +1,1 @@
+msbuild ..\src\SimpleNetBenchmark\SimpleNetBenchmark.csproj /t:BuildPackage /p:Configuration=Release /p:Platform=AnyCpu

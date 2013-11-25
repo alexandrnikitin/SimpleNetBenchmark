@@ -4,13 +4,11 @@ namespace SimpleNetBenchmark
 {
     public class Benchmark : IBenchmark, IBenchmarkBuilder
     {
-        public Benchmark(int iterationCount, int warmupIterationCount)
+        public Benchmark()
         {
-            IterationCount = iterationCount;
-            WarmupIterationCount = warmupIterationCount;
+            IterationCount = 10;
+            WarmupIterationCount = 5;
         }
-
-        public Benchmark() : this(iterationCount:10, warmupIterationCount:5) {}
 
         public string Name { get; set; }
         public Action Init { get; set; }
@@ -54,6 +52,18 @@ namespace SimpleNetBenchmark
         public IBenchmarkBuilder WithIterationDeinit(Action action)
         {
             IterationDeinit = action;
+            return this;
+        }
+
+        public IBenchmarkBuilder WithIterationCount(int count)
+        {
+            IterationCount = count;
+            return this;
+        }
+
+        public IBenchmarkBuilder WithWarmupIterationCount(int count)
+        {
+            WarmupIterationCount = count;
             return this;
         }
     }
