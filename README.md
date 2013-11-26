@@ -5,7 +5,7 @@ Simple .NET Benchmark provides simple api to benchmark your code.
 
 ## Example Usage
 
-	# Simple:
+### Simple:
 	
 	static void Main(string[] args)
     {
@@ -34,7 +34,7 @@ Simple .NET Benchmark provides simple api to benchmark your code.
 		});
     }
 	
-	# Customizable:
+### Customizable:
 	
 	static void Main(string[] args)
 	{
