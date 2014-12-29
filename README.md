@@ -5,8 +5,8 @@ Simple .NET Benchmark provides simple api to benchmark your code.
 
 Install
 -------
-It's available via [nuget package](https://www.nuget.org/packages/topshelf.autofac)  
-PM> `Install-Package Topshelf.Autofac`
+It's available via [nuget package](https://www.nuget.org/packages/SimpleNetBenchmark/)  
+PM> `Install-Package SimpleNetBenchmark`
 
 Example Usage
 -------------
