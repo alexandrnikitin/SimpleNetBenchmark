@@ -1,12 +1,18 @@
-# SimpleNetBenchmark
-
+SimpleNetBenchmark
+================
 
 Simple .NET Benchmark provides simple api to benchmark your code.
 
-## Example Usage
+Install
+-------
+It's available via [nuget package](https://www.nuget.org/packages/topshelf.autofac)  
+PM> `Install-Package Topshelf.Autofac`
 
-### Simple:
-	
+Example Usage
+-------------
+
+Simple:
+
 	static void Main(string[] args)
     {
 		Please.Run(x =>
@@ -34,8 +40,8 @@ Simple .NET Benchmark provides simple api to benchmark your code.
 		});
     }
 	
-### Customizable:
-	
+Customizable:
+
 	static void Main(string[] args)
 	{
 		new BenchmarkHostBuilder()
